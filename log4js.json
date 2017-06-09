@@ -1,0 +1,60 @@
+{
+  "replaceConsole": true,
+  "levels": {
+    "[all]" : "info",
+    "server-request": "info",
+    "jade-resolve": "info"
+  },
+  "appenders": [
+    {
+      "layout": {
+        "type": "pattern",
+        "pattern": "[%d][%.1p] %c - %m"
+      },
+      "type": "console"
+    },
+    {
+      "type": "logLevelFilter",
+      "level": "INFO",
+      "appender": {
+        "type": "dateFile",
+        "filename": "log/info.log",
+        "pattern": "-yyyy-MM-dd",
+        "layout": {
+          "type": "pattern",
+          "pattern": "[%d][%.1p] %c - %m"
+        }
+      }
+    },
+    {
+      "layout": {
+        "type": "pattern",
+        "pattern": "[%r][%.1p] %c - %m"
+      },
+      "type": "logLevelFilter",
+      "level": "ERROR",
+      "appender": {
+        "type": "dateFile",
+        "filename": "log/error.log",
+        "pattern": "-yyyy-MM-dd",
+        "layout": {
+          "type": "pattern",
+          "pattern": "[%d][%.1p] %c - %m"
+        }
+      }
+    },
+    {
+      "type": "logLevelFilter",
+      "level": "WARN",
+      "appender": {
+        "type": "dateFile",
+        "pattern": "-yyyy-MM-dd",
+        "filename": "log/warn.log",
+        "layout": {
+          "type": "pattern",
+          "pattern": "[%r][%.1p] %c - %m"
+        }
+      }
+    }
+  ]
+}
