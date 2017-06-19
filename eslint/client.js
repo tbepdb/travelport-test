@@ -151,7 +151,7 @@ module.exports = {
     'no-restricted-modules': 0,
     'no-sync': 0,
 
-    'array-bracket-spacing': [ 2, 'always', { singleValue: true, objectsInArrays: false, arraysInArrays: false }],
+    'array-bracket-spacing': [ 2, 'none', { singleValue: false, objectsInArrays: false, arraysInArrays: false }],
     'brace-style': [ 2, '1tbs', { allowSingleLine: false }],
     camelcase: 2,
     'comma-spacing': [ 2, { before: false, after: true }],

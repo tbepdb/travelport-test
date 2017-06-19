@@ -37,12 +37,13 @@ module.exports = (grunt) => {
           optimize: 'none',
           baseUrl: 'client/source/js',
           paths: {
+            async: wrapPath('/async/dist/async'),
             require: wrapPath('/requirejs/require'),
             jquery: wrapPath('/jquery/dist/jquery'),
             'bootstrap.datepicker': wrapPath('/bootstrap-datepicker/js/bootstrap-datepicker'),
             'bootstrap.datepicker.en': wrapPath('/bootstrap-datepicker/js/locales/bootstrap-datepicker-en-CA'),
             'jquery.autocomplete': wrapPath('/devbridge-autocomplete/dist/jquery.autocomplete'),
-            'lodash': wrapPath('/lodash/lodash'),
+            lodash: wrapPath('/lodash/lodash'),
           },
           shim: {
             // just example of localization

@@ -12,6 +12,7 @@
   "author": "tbepdb <tbepdb@gmail.com> (https://github.com/tbepdb)",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.4.1",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
     "bootstrap-datepicker": "^1.7.0",
@@ -23,6 +24,7 @@
     "log4js": "^1.1.1",
     "method-override": "^2.3.9",
     "object-path": "^0.11.4",
+    "parsleyjs": "^2.7.2",
     "pug": "^2.0.0-rc.2",
     "requirejs": "^2.3.3"
   },

@@ -12,18 +12,18 @@ html
           h1 locomote-test
     .row
       .col-md-6.col-md-offset-3
-        form.form-inline
+        form.form-inline#flight-search
           .form-group
             label(for="date") Date
-            input#date.form-control
+            input#date.form-control(name='date')
             script(type="text/javascript" src="/date.js" charset="utf-8")
           .form-group
             label(for="from") From
-            input#from.form-control
+            input#from.form-control(name='from')
             script(type="text/javascript" src="/location.from.js" charset="utf-8")
           .form-group
             label(for="to") To
-            input#to.form-control
+            input#to.form-control(name='to')
             script(type="text/javascript" src="/location.to.js" charset="utf-8")
           button.btn.btn-default(type="submit") Search
         script(type="text/javascript" src="/search.js" charset="utf-8")
