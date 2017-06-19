@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title locomote-test
+    link(type="text/css" href="/styles.css" rel="stylesheet")
+    script(type="text/javascript" src="/require.js" charset="utf-8")
+  body
+    script.
+    header
+      .row
+        .col-md-6.col-md-offset-3
+          h1 locomote-test
+    .row
+      .col-md-6.col-md-offset-3
+        form.form-inline
+          .form-group
+            label(for="date") Date
+            input#date.form-control
+            script(type="text/javascript" src="/date.js" charset="utf-8")
+          .form-group
+            label(for="from") From
+            input#from.form-control
+            script(type="text/javascript" src="/location.from.js" charset="utf-8")
+          .form-group
+            label(for="to") To
+            input#to.form-control
+            script(type="text/javascript" src="/location.to.js" charset="utf-8")
+          button.btn.btn-default(type="submit") Search
+        script(type="text/javascript" src="/search.js" charset="utf-8")
+    footer

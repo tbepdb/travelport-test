@@ -6,6 +6,7 @@ const
   bootstrap  = require('./bootstrap');
 
 const modules = [
+  './route/root',
   './route/airlines',
   './route/airports',
   './route/flightSearch'
@@ -21,5 +22,12 @@ modules.forEach(module_name => {
     //Do nothing
   }
 });
+
+try {
+  routers.push(require('./static'));
+} catch (ex) {
+  log.warn('error on load module static', ex);
+  //Do nothing
+}
 
 bootstrap(routers);

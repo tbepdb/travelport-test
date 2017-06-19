@@ -1,9 +1,9 @@
 'use strict';
 
 const
-  data       = require('./airportsData.json'),
-  objectPath = require('object-path'),
-  log        = require('log4js').getLogger('service-airports')
+  log        = require('log4js').getLogger('service-airports'),
+  http       = require('http'),
+  url       = require('url')
   ;
 
 /**
@@ -15,31 +15,36 @@ class AirportsService {
     this.db = db;
   }
 
-  fetchAll (callback) {
-    //const that = this;
-    //TODO implement storage support
-    callback(null, data);
-  }
-
   find (query, callback) {
-    const that = this;
     //TODO implement storage support
-    that.fetchAll((err, airports) => {
-      if (err) {
-        log.warn('error on fetchAll airports');
-        callback(err);
-      } else {
-        const result = [];
-        airports.forEach(airport => {
-          if (objectPath.get(airport, 'airportCode') === query ||
-            objectPath.get(airport, 'cityName') === query ||
-            objectPath.get(airport, 'cityCode') === query
-          ) {
-            result.push(airport);
-          }
-        });
-        callback(err, result);
+    const options = {
+      protocol: 'http:',
+      host: 'node.locomote.com',
+      pathname: `/code-task/airports`,
+      query: {
+        q: query
       }
+    };
+    const req = http.get(url.format(options), res => {
+      log.info(`STATUS: ${res.statusCode}`);
+      log.info(`HEADERS: ${JSON.stringify(res.headers)}`);
+
+      // Buffer the body entirely for processing as a whole.
+      const bodyChunks = [];
+      res.on('data', chunk => {
+        // You can process streamed parts here...
+        bodyChunks.push(chunk);
+      }).on('end', () => {
+        const body = Buffer.concat(bodyChunks);
+        log.info(`BODY: ${body}`);
+        // ...and/or process the entire body here.
+        callback(null, JSON.parse(body.toString()));
+      });
+    });
+
+    req.on('error', e => {
+      log.warn('ERROR: ', e.message);
+      callback(null, []);
     });
   }
 }

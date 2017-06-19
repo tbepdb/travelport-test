@@ -81,9 +81,8 @@ exports = module.exports = midlewares => {
     }
     next();
   });
-  app.use((req, res, next) => {
+  app.use((req, res) => {
     res.status(404).render('error/404', {});
-    next();
   });
   server.listen(process.env.PORT || 3000, () => {
     log.info('start server on port:', process.env.PORT || 3000);
