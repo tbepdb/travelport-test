@@ -12,7 +12,7 @@ Test task for travelport
 
 ## Usage
 
-open link [http://localhost:3000/]
+open link (http://localhost:3000/)
 
 ## License
 MIT
