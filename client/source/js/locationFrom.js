@@ -1,5 +1,6 @@
-/* global require*/
 'use strict';
+
+/* global require*/
 require([
   'location'
 ], function (location) {

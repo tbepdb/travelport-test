@@ -12,19 +12,24 @@ html
           h1 locomote-test
     .row
       .col-md-6.col-md-offset-3
-        form.form-inline#flight-search
+        form.form-inline#flight-search(data-parsley-validate)
           .form-group
             label(for="date") Date
-            input#date.form-control(name='date')
+            input#date.form-control(name='date' required)
             script(type="text/javascript" src="/date.js" charset="utf-8")
           .form-group
             label(for="from") From
-            input#from.form-control(name='from')
-            script(type="text/javascript" src="/location.from.js" charset="utf-8")
+            input#from.form-control(name='from' required)
+            script(type="text/javascript" src="/locationFrom.js" charset="utf-8")
           .form-group
             label(for="to") To
-            input#to.form-control(name='to')
-            script(type="text/javascript" src="/location.to.js" charset="utf-8")
+            input#to.form-control(name='to' required)
+            script(type="text/javascript" src="/locationTo.js" charset="utf-8")
           button.btn.btn-default(type="submit") Search
         script(type="text/javascript" src="/search.js" charset="utf-8")
+        script(type="text/javascript" src="/formValidate.js" charset="utf-8")
+    .row
+      .col-md-6.col-md-offset-3#searchProgressContainer
+    .row
+      .col-md-6.col-md-offset-3#searchResultContainer
     footer

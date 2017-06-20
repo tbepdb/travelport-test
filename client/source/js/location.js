@@ -1,4 +1,5 @@
 'use strict';
+
 /* global define*/
 
 define('location', [
@@ -12,7 +13,7 @@ define('location', [
       type: 'GET',
       paramName: 'q',
       minChars: 2,
-      transformResult: function (response) {
+      transformResult (response) {
         if (typeof response === 'string') {
           return {
             suggestions: _.map($.parseJSON(response), function (item) {
@@ -27,14 +28,14 @@ define('location', [
           suggestions: []
         };
       },
-      formatResult: function (suggestion, currentValue) {
-        var pattern, s = '(' + suggestion.value + ') ' + suggestion.data.airportName;
+      formatResult (suggestion, currentValue) {
+        const s = `(${suggestion.value}) ${suggestion.data.airportName}`;
 
         if (!currentValue) {
           return s;
         }
 
-        pattern = '(' + currentValue.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&') + ')';
+        const pattern = `(${currentValue.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&')})`;
 
         return s.
           replace(new RegExp(pattern, 'gi'), '<strong>$1<\/strong>').

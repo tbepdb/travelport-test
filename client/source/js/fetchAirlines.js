@@ -1,23 +1,21 @@
 'use strict';
-/* global define*/
 
+/* global define*/
 define('fetchAirlines', [
-  'jquery',
-  'log'
-], function ($, log) {
+  'jquery'
+], function ($) {
   return function (callback) {
     $.ajax({
       type: 'GET',
       url: '/airlines',
-      success: function (data, textStatus) {
+      success (data, textStatus) {
         if (textStatus === 'success') {
-          log.info(data);
           callback(null, data);
         } else {
           callback(textStatus);
         }
       },
-      error: function (err) {
+      error (err) {
         callback(err);
       }
     });

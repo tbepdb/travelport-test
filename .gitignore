@@ -33,3 +33,4 @@ log
 sitemap
 sql
 client/dist/**/*
+client/babel/**/*

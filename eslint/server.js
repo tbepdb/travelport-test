@@ -43,6 +43,7 @@ const rules = {
   'global-require': 0,
   'no-useless-escape': 0,
   'no-extra-parens': [ 2, 'all', { nestedBinaryExpressions: false, returnAssign: false }],
+  'newline-per-chained-call': ['error', { 'ignoreChainWithDepth': 5 }],
   'spellcheck/spell-checker': [0, {
     comments: true,
     strings: true,

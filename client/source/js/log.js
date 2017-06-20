@@ -1,11 +1,14 @@
 'use strict';
-/* global define, console*/
+
+/* global define, console, window*/
 /* eslint no-console: 0 */
 
 define('log', [
 ], function () {
   /** TODO append implementation remote logging service */
-  var f = function () {};
+  function f () {
+    return undefined;
+  }
 
   if (!window.console) {
     window.console = {
