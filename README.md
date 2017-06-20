@@ -5,10 +5,12 @@ Test task for travelport
 
 
 ## Install 
->git clone git@github.com:tbepdb/travelport-test.git
->cd travelport-test
->npm install
->npm start  
+```
+git clone git@github.com:tbepdb/travelport-test.git
+cd travelport-test
+npm install
+npm start  
+```
 
 ## Usage
 
