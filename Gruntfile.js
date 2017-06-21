@@ -107,10 +107,8 @@ module.exports = (grunt) => {
         wrapPath('/bootstrap/dist/css/bootstrap.css'),
         wrapPath('/bootstrap/dist/css/bootstrap-theme.css'),
 
-        wrapPath('/jquery-ui/themes/base/core.css'),
-        wrapPath('/jquery-ui/themes/base/theme.css'),
-        wrapPath('/jquery-ui/themes/base/datepicker.css'),
-        wrapPath('/jquery-ui/themes/base/autocomplete.css'),
+        wrapPath('/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css'),
+
         'client/source/css/**/*.css'
       ]
     },
