@@ -89,16 +89,14 @@ function pageNotFound (app) {
   });
 }
 
-function startServer (app) {
+function createServer (app) {
   const server = http.createServer(app);
 
   server.on('error', e => {
     log.error(e);
   });
 
-  server.listen(process.env.PORT || 3000, () => {
-    log.info('start server on port:', process.env.PORT || 3000);
-  });
+  return server;
 }
 
 exports = module.exports = midlewares => {
@@ -122,5 +120,5 @@ exports = module.exports = midlewares => {
 
   addErrorLogger(app);
   pageNotFound(app);
-  startServer(app);
+  return createServer(app);
 };

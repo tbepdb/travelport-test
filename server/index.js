@@ -30,4 +30,6 @@ try {
   //Do nothing
 }
 
-bootstrap(routers);
+bootstrap(routers).listen(process.env.PORT || 3000, () => {
+  log.info('start server on port:', process.env.PORT || 3000);
+});
