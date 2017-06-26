@@ -2,6 +2,7 @@
 
 const
   log        = require('log4js').getLogger('start'),
+  sticky     = require('sticky-session'),
   AppContext = require('./appContext').AppContext,
   bootstrap  = require('./bootstrap');
 
@@ -30,6 +31,15 @@ try {
   //Do nothing
 }
 
-bootstrap(routers).listen(process.env.PORT || 3000, () => {
-  log.info('start server on port:', process.env.PORT || 3000);
-});
+if (parseInt(process.env.CLUSTER_WORKER_CNT, 10)) {
+  sticky.listen(bootstrap(routers), process.env.PORT || 3000, {
+    workers: parseInt(process.env.CLUSTER_WORKER_CNT, 10)
+  }, function () {
+    log.info('start worker on port:', process.env.PORT || 3000);
+  });
+} else {
+  bootstrap(routers).listen(process.env.PORT || 3000, function () {
+    log.info('start server on port:', process.env.PORT || 3000);
+  });
+}
+
